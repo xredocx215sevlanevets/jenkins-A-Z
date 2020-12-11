@@ -1,21 +1,23 @@
 pipeline {
-   // agent none
+    agent any
 
-   // agent {
-   //    label: "Slave 1"
-   // }
-
-   agent {
-      node {
-         label 'Slave 1'
-         customWorkspace '/home/ec2-user/customWorkspace'
-      }
-   }
-
-   stages {
-      stage('checkout scm') {
+    stages {
+        stage('Build') {
          steps {
-            echo 'Hello World'
+			
+				script {
+				
+					def name = "jeff"
+					
+					if(name == "jeff")
+						println("hi ${name}")
+					else
+						println("hi human")				
+												
+					sleep 2	
+					echo "end of script"
+				}
+
          }
       }
    }
